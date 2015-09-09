@@ -51,25 +51,6 @@ exports.signupCompleted = function(req, res) {
   res.render('user/signup-completed');
 };
 
-/*
- * API page
- */
-exports.api = function(req, res) {
-  res.render('api');
-};
-
-/*
- * List all User
- */
-exports.list = function(req, res) {
-  User.find({}, function(err, users) {
-    var list = [];
-    users.forEach(function(user) {
-      list.push(user.username);
-    });
-    res.json(list);
-  });
-};
 
 /*
  * Render login page

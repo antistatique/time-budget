@@ -3,7 +3,6 @@
 var gulp          = require('gulp'),
     $             = require('gulp-load-plugins')(),
     config        = require('../gulp_config.json'),
-    api           = require('../config/api.js'),
     argv          = require('yargs').argv;
 
 module.exports = function() {
@@ -18,7 +17,6 @@ module.exports = function() {
       .pipe($.jshint())
       .pipe($.jshint.reporter('jshint-stylish'))
       .pipe($.ngAnnotate())
-      .pipe($.replace('API_KEY_HERE', api.key))
       .pipe($.concat('angular-app.js'))
       .pipe($.if(argv.production, $.uglify()))
       .pipe($.size({title: 'JS SCRIPTS', showFiles: true}))
