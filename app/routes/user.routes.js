@@ -6,7 +6,7 @@ var userCtrl 		= require('../controllers/user.ctrl'),
 module.exports = function(app, passport) {
 
   app.get('/', userCtrl.index);
-  app.get('/', auth.haveApiKey, userCtrl.dashboard);
+  app.get('/', auth.isAuthenticated, userCtrl.dashboard);
 
   app.get('/login', userCtrl.login);
   app.post('/login', passport.authenticate('login', {successRedirect: '/', failureRedirect: '/login' }));

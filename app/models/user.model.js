@@ -16,9 +16,19 @@ var userSchema = mongoose.Schema({
     required: true,
     unique: false,
   },
-  key: {
+  harvest_subdomain: {
     type: String,
-    required: false,
+    required: true,
+    unique: false,
+  },
+  harvest_email: {
+    type: String,
+    required: true,
+    unique: false,
+  },
+  harvest_password: {
+    type: String,
+    required: true,
     unique: false,
   },
   roles: {
